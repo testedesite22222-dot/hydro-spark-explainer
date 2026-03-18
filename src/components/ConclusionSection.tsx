@@ -1,5 +1,24 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import { Lightbulb, TrendingUp, Leaf } from "lucide-react";
+
+const highlights = [
+  {
+    icon: Lightbulb,
+    title: "Transformação",
+    text: "Potencial → Cinética → Mecânica → Elétrica",
+  },
+  {
+    icon: TrendingUp,
+    title: "65% da Matriz BR",
+    text: "Maior fonte renovável do Brasil",
+  },
+  {
+    icon: Leaf,
+    title: "Futuro Sustentável",
+    text: "Diversificação com eólica e solar",
+  },
+];
 
 const ConclusionSection = () => {
   return (
@@ -28,11 +47,29 @@ const ConclusionSection = () => {
           </p>
           <p>
             É igualmente importante reconhecer que, apesar de ser uma fonte renovável com baixas emissões 
-            durante a operação, a energia hidrelétrica possui impactos ambientais e sociais significativos, 
-            como o alagamento de áreas naturais e o deslocamento de comunidades. O futuro da geração de 
-            energia passa pela diversificação da matriz energética, combinando hidrelétrica, eólica, solar 
-            e outras fontes renováveis para garantir um fornecimento sustentável, resiliente e justo.
+            durante a operação, a energia hidrelétrica possui impactos ambientais e sociais significativos. 
+            O futuro da geração de energia passa pela diversificação da matriz energética, combinando 
+            hidrelétrica, eólica, solar e outras fontes renováveis para garantir um fornecimento sustentável, 
+            resiliente e justo.
           </p>
+        </div>
+
+        {/* Quick-reference highlights */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-border/50">
+          {highlights.map((h, i) => (
+            <motion.div
+              key={h.title}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-center p-4 rounded-lg bg-primary/5"
+            >
+              <h.icon className="w-5 h-5 text-primary mx-auto mb-2" aria-hidden="true" />
+              <p className="font-display font-semibold text-sm text-foreground">{h.title}</p>
+              <p className="text-xs text-muted-foreground mt-1">{h.text}</p>
+            </motion.div>
+          ))}
         </div>
 
         <div className="mt-8 pt-6 border-t border-border/50 text-center">
