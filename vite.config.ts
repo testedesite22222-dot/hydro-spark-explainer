@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/testedosite22222-dot/", // 👈 ADICIONA ISSO AQUI
+  base: "hydro-spark-explainer", // 👈 ADICIONA ISSO AQUI
 
   server: {
     host: "::",
